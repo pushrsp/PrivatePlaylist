@@ -1,6 +1,8 @@
 import React from 'react'
 import { CssBaseline, ThemeProvider } from '@mui/material'
 
+import Header from './components/global/Header'
+
 import { ColorModeContext, useMode } from './config/theme'
 
 const App = () => {
@@ -11,7 +13,9 @@ const App = () => {
             <ThemeProvider theme={theme}>
                 <CssBaseline>
                     <div className="app">
-                        <main className="content"></main>
+                        <main className="content">
+                            <Header />
+                        </main>
                     </div>
                 </CssBaseline>
             </ThemeProvider>

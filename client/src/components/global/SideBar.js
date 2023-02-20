@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { Sidebar, Menu, MenuItem, useProSidebar, menuClasses } from 'react-pro-sidebar'
 import { Box, IconButton, Typography, useTheme } from '@mui/material'
 import { Link } from 'react-router-dom'
-import CreditCardIcon from '@mui/icons-material/CreditCardOutlined'
-import DashboardIcon from '@mui/icons-material/DashboardOutlined'
+import PersonIcon from '@mui/icons-material/PersonOutlined'
+import VideoIcon from '@mui/icons-material/VideocamOutlined'
 
 import { tokens } from '../../config/theme'
 
@@ -32,7 +32,7 @@ const SideBar = () => {
                         backgroundColor:
                             selected === 'dashboard' ? colors.greenAccent[500] : 'inherit',
                     }}
-                    icon={<DashboardIcon />}
+                    icon={<VideoIcon />}
                     component={<Link replace={true} to="/" />}
                     onClick={() => setSelected('dashboard')}
                 />
@@ -41,7 +41,7 @@ const SideBar = () => {
                         backgroundColor:
                             selected === 'mycard' ? colors.greenAccent[500] : 'inherit',
                     }}
-                    icon={<CreditCardIcon />}
+                    icon={<PersonIcon />}
                     component={<Link replace={true} to="/card" />}
                     onClick={() => setSelected('mycard')}
                 />

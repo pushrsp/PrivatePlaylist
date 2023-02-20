@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Box, IconButton, useTheme, InputBase } from '@mui/material'
 import LightModeIcon from '@mui/icons-material/LightModeOutlined'
 import DarkModeIcon from '@mui/icons-material/DarkModeOutlined'
@@ -7,7 +7,11 @@ import SearchIcon from '@mui/icons-material/SearchOutlined'
 
 import { ColorModeContext, tokens } from '../../config/theme'
 
+import FileUploadModal from '../header/FileUploadModal'
+
 const Header = () => {
+    const [open, setOpen] = useState(false)
+
     const theme = useTheme()
     const colors = tokens(theme.palette.mode)
     const colorMode = useContext(ColorModeContext)
@@ -26,7 +30,8 @@ const Header = () => {
                     {theme.palette.mode === 'dark' ? <DarkModeIcon /> : <LightModeIcon />}
                 </IconButton>
                 <IconButton>
-                    <UploadFileIcon />
+                    <UploadFileIcon onClick={() => setOpen(true)} />
+                    <FileUploadModal open={open} onClose={() => setOpen(false)} />
                 </IconButton>
             </Box>
         </Box>
